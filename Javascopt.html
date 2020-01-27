@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+         function myFunction() {
+            document.getElementById("demo").innerHTML = "paragraph changed.";
+        }
+    </script>
+</head>
+<body>
+    <p id="demo">Paragraf med function i head.</p>
+
+    <button type="button" onclick="myFunction()">Button</button>
+
+    <p id="demo1">Paragraf med function i body</p>
+
+    <button type="button" onclick="myFunction1()">Bøtten</button>
+
+    <p id="demo2">Paragraf med function i external fil</p>
+
+    <button type="button" onclick="myFunction2()">Burrito</button>
+
+    <p>matte 94*54=?</p>
+
+    <p id="demo3"></p>
+
+    <p id=demo4></p>
+    
+    
+    
+    <script>
+        function myFunction1() {
+            document.getElementById("demo1").innerHTML = "Paragraph changed.";
+        }
+        document.getElementById("demo3").innerHTML = 94*54;
+        document.write(5*5);
+        window.alert(5+3);
+        document.getElementById("demo4").innerHTML = "dwqdqdqooosas";
+        
+    </script>
+    <script src="ExternalFunction.js"></script>
+</body>
+</html>

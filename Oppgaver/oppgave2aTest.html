@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body onload="testOnLoad()">
+    <input type="text" onchange="testOnChange()" oninput="testOnInput()"/>
+    <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">test test test</h3>
+    <h2 id=info></h2>
+
+    <script>
+        function testOnLoad() {
+            document.getElementById('info').innerHTML += '<li>onLoad</li>';
+        }
+        function testOnChange() {
+            document.getElementById('info').innerHTML += '<li>onChange</li>';
+        }
+        function testOnInput() {
+            document.getElementById('info').innerHTML += '<li>onInput</li>';
+        }
+        function testOnMouseOver() {
+            document.getElementById('info').innerHTML += "<li>onMouseOver</li>";
+        }
+        function testOnMouseOut() {
+            document.getElementById('info').innerHTML += "<li>onMouseOut</li>"
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+</head>
+<body style=background-color:orange>
+    <h1 style=color:aqua;>Quiz 1</h1>
+
+    <p>Hva er parmesan?</p>
+    
+    <p id="s1" onclick="Riktig()">En ost</p>
+    <p id="s2" onclick="Feil1()">En kake</p>
+    <p id="s3" onclick="Feil2()">En arkitekturstil</p>
+
+
+
+    <script>
+        function Riktig() {
+            document.getElementById("s1").innerHTML = "Riktig";
+        }
+        function Feil1() {
+            document.getElementById("s2").innerHTML = "Feil";
+            }
+        function Feil2() {
+            document.getElementById("s3").innerHTML = "Feil";
+            }
+    </script>
+
+    
+</body>
+</html>
