@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+
+    <p id="demo2">javascript can make me appear and dissapear too</p>
+
+    <button type="button" onclick="myFunction1()">click for appear</button>
+    <button type="button" onclick="myFunction()">click for dissapear</button>
+
+    <br>
+    <br>
+
+    <p id="demo" style="display:none">javascript can make me appear and dissapear</p>
+    <button type="button" onclick="document.getElementById('demo').style.display='block'">click me</button>
+    <button type="button" onclick="document.getElementById('demo').style.display='none'">click me</button>
+    <script>
+        function myFunction () {
+            document.getElementById("demo2").style.display="none";
+        }
+        function myFunction1 () {
+            document.getElementById("demo2").style.display="block";
+        }
+    </script>
+</body>
+</html>

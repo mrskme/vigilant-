@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <div id='tekstOnLoad1'></div>
+
+    <div>
+    <img onload="tekstOnLoad2()" width="400" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/OES_06.jpg/1200px-OES_06.jpg">
+</div>
+<div ></div>
+
+
+    <script>
+    document.getElementById('tekstOnLoad1').innerHTML += '<li>fra rett i script-tagg';
+    document.getElementById('tekstOnLoad1').innerHTML += '' + new Date().toTimeString();
+
+        function tekstOnLoad2() {
+            document.getElementById('tekstOnLoad1').innerHTML += '<li>fra onload';
+            document.getElementById('tekstOnLoad1').innerHTML += '' + new Date().toTimeString();
+        }
+        
+        </script>
+    
+</body>
+</html>

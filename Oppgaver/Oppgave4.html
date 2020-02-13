@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <style>
+        button {
+            border: groove aqua 10px;
+            margin: 4px;
+            float:left;
+        }
+        .Clear {
+            clear:left;
+        }
+        div {
+            float:left;
+            
+        }
+        </style>
+
+</head>
+<body>  
+    <div id='pressing'></div>
+
+    <button class="Clear" type=button onclick="keyPress1(this)">1</button>
+    <button type=button onclick="keyPress2(this)">2</button>
+    <button type=button onclick="keyPress3(this)">3</button>
+    <button class="Clear" type=button onclick="keyPress4(this)">4</button>
+    <button type=button onclick="keyPress5(this)">5</button>
+    <button type=button onclick="keyPress6(this)">6</button>
+    <button class="Clear" type=button onclick="keyPress7(this)">7</button>
+    <button type=button onclick="keyPress8(this)">8</button>
+    <button type=button onclick="keyPress9(this)">9</button>
+
+
+
+
+    <script>
+        function keyPress1() {
+            document.getElementById('pressing').innerHTML+="1"
+        }
+        function keyPress2() {
+            document.getElementById('pressing').innerHTML+="2"
+        }
+        function keyPress3() {
+            document.getElementById('pressing').innerHTML+="3"
+        }
+        function keyPress4() {
+            document.getElementById('pressing').innerHTML+="4"
+        }
+        function keyPress5() {
+            document.getElementById('pressing').innerHTML+="5"
+        }
+        function keyPress6() {
+            document.getElementById('pressing').innerHTML+="6"
+        }
+        function keyPress7() {
+            document.getElementById('pressing').innerHTML+="7"
+        }
+        function keyPress8() {
+            document.getElementById('pressing').innerHTML+="8"
+        }
+        function keyPress9() {
+            document.getElementById('pressing').innerHTML+="9"
+        }
+    </script>
+</body>
+</html>

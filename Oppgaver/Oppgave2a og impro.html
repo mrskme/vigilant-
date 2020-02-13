@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    
+</head>
+<body>
+    <H1 onmousemove="testOnMouseMove()" onwheel="testOnWheel()" oncontextmenu="testonContextMenu()" ondblclick="testOnDblClick()">Test Test Test</H1>
+    <input  onmousemove="testOnMouseMove()" onkeyup="testOnKeyUp()" onkeydown="testOnKeyDown()" type=text>
+
+    <p id=info></p>
+    <script>
+        function testOnDblClick() {
+            document.getElementById('info').innerHTML += "<li>onDblClick</li>";
+        }
+        function testonContextMenu() {
+            document.getElementById('info').innerHTML += "<li>onContextMenu</li>";
+        }
+        function testOnKeyDown() {
+            document.getElementById('info').innerHTML += "<li>onKeyDown</li>";
+        }
+        function testOnKeyUp() {
+            document.getElementById('info').innerHTML += "<li>onKeyUp</li>";
+        }
+        function testOnMouseMove() {
+            document.getElementById('info').innerHTML += "<li>onMouseMove</li>";
+        }
+        function testOnWheel() {
+            document.getElementById('info').innerHTML += "<li>onWheel</li>";
+        }
+
+    </script>
+    
+</body>
+</html>

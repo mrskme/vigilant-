@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .stilig1 {
+                background-color: blueviolet;
+            }
+            .stilig2 {
+                border: dashed 6px;
+            }
+            .stilig3 {
+                border-color: aqua;
+            }
+            .stilig4 {
+                margin: 10px;
+            }
+            .stilig5 {
+                color: chartreuse;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="bla" onclick="selectDiv('bla')">Bla bla bla</div>
+        <div id="bl2" onclick="selectDiv('bl2')">Bla bla bla</div>
+        <input id="chk1" type="checkbox" onchange="toggleStyle1()" />
+        <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
+        <input id="chk3" type="checkbox" onchange="toggleStyle3()" />
+        <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
+        <input id="chk5" type="checkbox" onchange="toggleStyle5()" />
+        <br/>
+        <input id="chk6" type="checkbox" onchange="toggleDiv()"/>
+        
+        <script>
+            var div = "bla";
+            function toggleStyle1() {
+                var isChecked1 = document.getElementById('chk1').checked;
+                document.getElementById(div).classList.toggle('stilig1', isChecked1);
+            }
+            function toggleStyle2() {
+                var isChecked2 = document.getElementById('chk2').checked;
+                document.getElementById(div).classList.toggle('stilig2', isChecked2);
+            }
+            function toggleStyle3() {
+                var isChecked3 = document.getElementById('chk3').checked;
+                document.getElementById(div).classList.toggle('stilig3', isChecked3);
+            }
+            function toggleStyle4() {
+                var isChecked4 = document.getElementById('chk4').checked;
+                document.getElementById(div).classList.toggle('stilig4', isChecked4);
+            }
+            function toggleStyle5() {
+                document.getElementById(div).classList.toggle('stilig5', isChecked5);
+            }
+            function selectDiv(id) {
+                div = id
+            }
+            function toggleDiv() {
+                var isChecked = document.getElementById('chk6').checked;
+                if (isChecked) {
+                    div="bl2"
+                } else {div="bla"}
+            }
+        </script>
+    </body>
+</html>

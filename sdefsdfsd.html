@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        .toggleTest {
+            border: dashed tomato 4px;
+        }
+        div {
+            border: groove lawngreen 5px;
+            color:palegoldenrod;
+            margin: 3px;
+            background-color: palevioletred;
+        }
+
+
+
+        </style>
+
+</head>
+<body> 
+    <div onmouseover = "this.style.backgroundColor='red'">myDIV.</div>
+
+    <h1 id="banan" class="toggleTest">header</h1>
+
+    <div onclick="toggleDiv(this)">button A</div>
+    <div onclick="toggleDiv(this)">button B</div>
+
+    <script>
+        let option1 = document.getElementById("banan");
+
+        function toggleDiv(style1) {
+            option1.classList.remove('toggleTest');
+            style1.classList.add('toggleTest');
+            option1 = style1;
+            }
+        </script>
+    
+</body>
+</html>

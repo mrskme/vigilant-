@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <p>Ferdighet 7 - Sette variabel til resultat av et regnestykke. </p>
+    <input id="høyde" type="range" min="1" max="1000" step="1" selected value="1" oninput="calculate()"/>
+    <input id="lengde" type="range" min="1" max="1000" step="1" selected value="1" oninput="calculate()"/>
+    <h3>Areal og omkrets</h3>
+    <div id="resultat"></div>
+
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        var høydeInput = document.getElementById('høyde');
+        var lengdeInput = document.getElementById('lengde');
+       
+    calculate();
+    function calculate() {
+        var høyde = parseInt(høydeInput.value);
+        var lengde = parseInt(lengdeInput.value);
+        var areal = høyde * lengde;
+        var omkrets = høyde + høyde + lengde + lengde;
+        resultatDiv.innerHTML = '' + 
+            høyde + '*' + lengde + '=' + areal +  '<br>' +
+            høyde + '+' + høyde + '+' + lengde + '+' + lengde + '=' + omkrets + '<br>';
+    }
+        
+    </script>
+</body>
+</html>
