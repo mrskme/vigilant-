@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        div {
+            width: 100px;
+            height: 60px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <label for="farger">Choose a color</label>
+   <select name="" id="farger" onchange="colorChooser(this)//her sender den this inn i colorChoser">
+       <option value="black">Black</option>
+       <option value="darkblue">Dark blue</option>
+       <option selected value="lightgray">Light gray</option>
+       <option value="lightcoral">Light red</option>
+       <option value="lightgreen">Light green</option>
+   </select>
+
+   <div id="colorDiv">tekst her</div>
+
+   <script>
+   const div = document.getElementById("colorDiv");
+   const fargeSelecter = document.getElementById("farger");
+    let currentBKGcolor;
+
+    colorChooser(fargeSelecter); //her sender den fargeselector inn i colorChoser
+
+    function colorChooser(color) {
+        div.style.backgroundColor = color.value;
+        currentBKGcolor = color.value;
+        changeTxtC();
+    }
+
+    function changeTxtC(){
+        if(currentBKGcolor == "black" || currentBKGcolor == "darkblue") {
+            colorDiv.style.color = "white";
+        } if(currentBKGcolor == "lightgray" || currentBKGcolor =="lightcoral" || currentBKGcolor =="lightgreen" ) {
+            colorDiv.style.color = "darkgreen";
+        }
+    }
+   
+   </script>
+    
+</body>
+</html>

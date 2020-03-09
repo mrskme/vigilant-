@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>Ferdighet 9d - Valgsetninger - Sammenligne flere ting på en gang (og)</p>
+    <div id="info"></div>
+    <ul>
+        <li>Endre på tekstene!</li>
+        <li>Prøv også å fylle ut bOkStAvEr:</li>
+    </ul>
+    <input type="text" id="txt1" oninput="findFirst()" value="1" /><br />
+    <input type="text" id="txt2" oninput="findFirst()" value="2" /><br />
+    <input type="text" id="txt3" oninput="findFirst()" value="3" /><br />
+    <script>
+        var infoDiv = document.getElementById('info');
+        var txtDiv1 = document.getElementById('txt1');
+        var txtDiv2 = document.getElementById('txt2');
+        var txtDiv3 = document.getElementById('txt3');
+
+        findFirst();
+
+        function findFirst() {
+            var txt1 = txtDiv1.value;
+            var txt2 = txtDiv2.value;
+            var txt3 = txtDiv3.value;
+
+            infoDiv.innerHTML = 'Om vi sorterer de tre tekstene, er denne den første:<br/>';
+            if (txt1 <= txt2 && txt1 <= txt3 && txt2 <= txt3) infoDiv.innerHTML = "størst:" + txt3 + "<br/>" + "mellomst:" + txt2 + "<br/>" + "minst:" + txt1; // 3,2,1
+            if (txt3 >= txt2 && txt3 >= txt1 && txt1 >= txt2) infoDiv.innerHTML = "størst:" + txt3 + "<br/>" + "mellomst:" + txt1 + "<br/>" + "minst:" + txt2; // 3,1,2
+            if (txt1 <= txt2 && txt1 <= txt3 && txt3 <= txt2) infoDiv.innerHTML = "størst:" + txt2 + "<br/>" + "mellomst:" + txt3 + "<br/>" + "minst:" + txt1; // 2,3,1
+            if (txt2 >= txt3 && txt2 >= txt1 && txt1 >= txt3) infoDiv.innerHTML = "størst:" + txt2 + "<br/>" + "mellomst:" + txt1 + "<br/>" + "minst:" + txt3; // 2,1,3
+            if (txt1 >= txt2 && txt1 >= txt3 && txt2 >= txt3) infoDiv.innerHTML = "størst:" + txt1 + "<br/>" + "mellomst:" + txt2 + "<br/>" + "minst:" + txt3; // 1,2,3
+            if (txt1 >= txt3 && txt1 >= txt2 && txt3 >= txt2) infoDiv.innerHTML = "størst:" + txt1 + "<br/>" + "mellomst:" + txt3 + "<br/>" + "minst:" + txt2; // 1,3,2
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+
+</head>
+<body>
+    <div id='resultat'> </div>
+    <script>
+        var resultatDiv = document.getElementById('resultat');
+        calculate();
+
+        
+        function calculate() {
+            var bredde = 10 + Math.floor(Math.random() * 20);
+            var høyde = 10 + Math.floor(Math.random() * 50);
+            var borderSize = 3 + Math.floor(Math.random() * 5);
+
+            var tekst = 'bredde: ' + bredde + ' pixels' + '<br/>' + 'høyde: ' + høyde + ' pixels' + '<br/>' + 'border: ' + borderSize + ' pixels';
+
+            resultatDiv.innerHTML = '<div style= "'
+                + 'background-color: aqua;'
+                + 'height: ' + høyde + 'px;'
+                + 'width: ' + bredde + 'px;'
+                + 'border: solid orange '+borderSize +'px;'
+                + '">';
+
+            resultatDiv.innerHTML += tekst;
+            console.log(resultatDiv.innerHTML)
+            console.log(tekst)
+;        }
+
+    </script>
+    
+</body>
+</html>

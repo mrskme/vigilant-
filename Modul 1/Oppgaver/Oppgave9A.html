@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.borderLife {
+
+    border: 5px solid red;
+}
+</style>
+</head>
+<body>
+    <div class="borderLife" id="resultat1">A</div>
+    <div class="borderLife" id='resultat2'>B</div>
+    <input id="sliderA" type="range" min="70" max="200" step="1"  oninput="resizer()" value="50"/><br/>
+    <input id= "sliderB" type="range" min="70" max="200" step="1" oninput="resizer()" value="50"/>
+    <div id="resultatMatte"></div>
+    <div id="resultatMatte2"></div>
+    <div id="sammenligne"></div>
+    
+   <script>
+    
+        var resultatDiv = document.getElementById('resultat1');
+        var resultatDiv2 = document.getElementById('resultat2');
+        var resultatMatte = document.getElementById('resultatMatte');
+        var resultatMatte2 = document.getElementById('resultatMatte2');
+        var sammenligne = document.getElementById('sammenligne');
+
+        var sliderA = document.getElementById('sliderA');
+        var sliderB = document.getElementById('sliderB');
+        var høydeBredde1 = parseInt(sliderA.value);
+        var høydeBredde2 = parseInt(sliderB.value); //hvorfor funker ikke disse
+        var areal = høydeBredde1 * høydeBredde1;
+        var areal2 = høydeBredde2 * høydeBredde2;
+        
+        resizer();
+        calculate();
+        function resizer() {
+            
+            var divAsize = "height:" + sliderA.value + "px; " +
+                            "width:" + sliderA.value + "px; ";
+            resultatDiv.style.height = sliderA.value+"px";
+            resultatDiv.style.width = sliderA.value+"px";
+
+            var divBsize = "height:" + sliderB.value + 'px; ' + 
+                            "width:" + sliderB.value + 'px; ';
+            resultatDiv2.style.height = sliderB.value+"px";
+            resultatDiv2.style.width = sliderB.value+"px";
+
+    
+            resultatDiv.innerText = divAsize;
+            calculate();
+        }
+        
+        function calculate() {
+        var høydeBredde1 = parseInt(sliderA.value);
+        var høydeBredde2 = parseInt(sliderB.value);
+        var areal = høydeBredde1 * høydeBredde1;
+        var areal2 = høydeBredde2 * høydeBredde2;
+        resultatMatte.innerHTML = areal;
+        resultatMatte2.innerHTML = areal2;
+    
+         //hvorfor funker det ikke uten denne
+            if  (høydeBredde1 > høydeBredde2) {
+                sammenligne.innerHTML = 'Boks A er større';}
+            else if(høydeBredde1 < høydeBredde2){
+                sammenligne.innerHTML = 'Boks B er større'
+         }
+          else if (høydeBredde1 == høydeBredde2){
+                sammenligne.innerHTML = 'WOW de er like store!';}
+        }
+
+        </script>
+</body>
+</html>

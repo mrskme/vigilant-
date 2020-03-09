@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <style>
+        button {
+            border: groove orange 10px;
+            margin: 4px;
+            float:left;
+        }
+        .Clear {
+            clear:left;
+        }
+        div {
+            float:left;
+            
+        }
+        </style>
+
+</head>
+<body>  
+    <div onchange="findCorrectCode()" id='pressing'></div>
+    
+
+    <button class="Clear" type=button onclick="keypress(this)">1</button>
+    <button type=button onclick="keypress(this)">2</button>
+    <button type=button onclick="keypress(this)">3</button>
+    <button class="Clear" type=button onclick="keypress(this)">4</button>
+    <button type=button onclick="keypress(this)">5</button>
+    <button type=button onclick="keypress(this)">6</button>
+    <button class="Clear" type=button onclick="keypress(this)">7</button>
+    <button type=button onclick="keypress(this)">8</button>
+    <button type=button onclick="keypress(this)">9</button><br/>
+<div class="Clear" id='resultat'></div>
+    <script>
+        
+        var correctCode = '1234';
+        var enteredSoFar = '';
+        var code = document.getElementById('pressing');
+        var codeInnerHTML = code.innerHTML;
+           
+      
+        findCorrectCode();
+
+        function keypress(pressedKey) {
+            code.innerHTML+= pressedKey.innerHTML;
+            enteredSoFar += pressedKey.innerHTML;
+            findCorrectCode();
+        }  
+        function findCorrectCode() {
+        if (enteredSoFar == '1234') resultat.innerHTML = 'Åpen!'
+        if (enteredSoFar != '1234') resultat.innerHTML = 'Låst' 
+        }
+        // function keyPress2() {
+        //     document.getElementById('pressing').innerHTML+="2"
+        // }
+        // function keyPress3() {
+        //     document.getElementById('pressing').innerHTML+="3"
+        // }
+        // function keyPress4() {
+        //     document.getElementById('pressing').innerHTML+="4"
+        // }
+        // function keyPress5() {
+        //     document.getElementById('pressing').innerHTML+="5"
+        // }
+        // function keyPress6() {
+        //     document.getElementById('pressing').innerHTML+="6"
+        // }
+        // function keyPress7() {
+        //     document.getElementById('pressing').innerHTML+="7"
+        // }
+        // function keyPress8() {
+        //     document.getElementById('pressing').innerHTML+="8"
+        // }
+        // function keyPress9() {
+        //     document.getElementById('pressing').innerHTML+="9"
+        // }
+    </script>
+</body>
+</html>

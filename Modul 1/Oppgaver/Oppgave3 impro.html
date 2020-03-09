@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <div onclick="doSomething(this)">hei</div>
+    <div onclick="doSomething(this)">nei</div>
+    <div onclick="doSomething(this)">test</div>
+    <div onclick="doSomething(this)">  <img  width=500 src="https://i.ebayimg.com/images/i/173085776690-0-1/s-l1000.jpg"></div> 
+    <div onclick="clickCounter()">  TRYKK HER FOR Å TELLE</div>
+    <div id="counter"></div>
+   <script>
+        var counter = 0;
+        var img2 ="https://i.ytimg.com/vi/U5KLMeFK_UY/maxresdefault.jpg";
+        function doSomething(eplekake) {
+            console.log(eplekake.innerHTML); //sjekke om en variabel har den verdien vi tror
+        eplekake.innerHTML =`<img width=500 height=500 src="   ${img2}    ">`;
+    
+    }
+
+    function clickCounter(){
+        counter++;
+        document.getElementById("counter").innerHTML = counter;
+    }
+   
+
+
+    </script>
+
+</body>
+</html>
