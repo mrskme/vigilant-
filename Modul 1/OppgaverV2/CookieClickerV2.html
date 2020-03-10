@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            user-select: none;
+        }
+        button {
+            font-size: 120%
+        }
+        .topcorner {
+        position:absolute;
+        top:0;
+        right:0;
+        }
+        .topcorner1 {
+        position:absolute;
+        top:5;
+        right:0;
+        }
+    
+    </style>
+    
+</head>
+<body>
+    <img src="https://ak9.picdn.net/shutterstock/videos/16031959/thumb/7.jpg" height=300 id="image" 
+    onload="hideOnLoad();" onclick="baseCount(this);" >
+
+    <div style="font-size: 165%" id="counterDiv"></div><br>
+
+    <button id="button1" onclick="fruitPickerInterval()">Hire one fruit picker for 50 apples</button> <br>
+
+    <div style="font-size: 125%" id="amountOfFruitPickers"></div><br>
+
+    <button id="button2" onclick="hulkInterval()">Hire one fruit hulk to shake apple trees 500 apples</button> <br>
+
+    <div style="font-size: 125%" id="amountOfHulks"></div>
+
+    <button class="topcorner" id="fruitUpgrade" onclick="upgrade1Work()" >Upgrade fruit pickers to x2 efficiency for 200 apples</button>
+    <button class="topcorner1" id="hulkUpgrade" onclick="upgrade2Work()" >Upgrade hulks to x2 efficiency for 2000 apples</button>
+
+
+
+    <script>
+
+        var counterDiv = document.getElementById("counterDiv");
+        var getButton1 = document.getElementById("button1")
+        var getButton2 = document.getElementById("button2")
+        var fruitUpgrade = document.getElementById("fruitUpgrade")
+        var hulkUpgrade = document.getElementById("hulkUpgrade")
+        var counter = counterDiv.innerHTML
+        var amountOfFruitPickers = document.getElementById("amountOfFruitPickers")
+        var amountOfHulks = document.getElementById("amountOfHulks")
+        var fruitInnerHTML = amountOfFruitPickers.innerHTML
+        var hulkInnerHTML = amountOfHulks.innerHTML
+        var fruitCount = 0;
+        var hulkCount = 0;
+        var applePickerUpgrade = false;
+        var hulkPickerUpgrade = false;
+
+        function baseCount(counterThis) {
+            counter++;
+            counterDiv.innerHTML = counter + " Apples";
+            fruitAppear();
+            hulkAppear();
+            upgrade1Appear();
+            upgrade2Appear();
+        };
+        function hideOnLoad() {
+            getButton1.style.display = "none"
+            getButton2.style.display = "none"
+            fruitUpgrade.style.display = "none"
+            hulkUpgrade.style.display = "none"
+        };
+        function fruitAppear() {
+            if (counter >= 50)
+            {
+                getButton1.style.display = "block" }
+            else {
+                getButton1.style.display = "none"
+            };
+        };
+        function fruitPickerInterval() {
+            if(counter <= 50) return;
+            removeApples(50);
+            setInterval(function(){ fruitPickerIncome()}, 1000);
+            fruitPickerCounter();
+        };
+        function fruitPickerIncome() {
+            let pickingRate = counter++;
+            if(applePickerUpgrade == true){
+                pickingRate = counter+=1;
+            }
+            counterDiv.innerHTML = pickingRate + " Apples";
+            if(pickingRate >= 50) {
+                fruitAppear();
+            } 
+            if (pickingRate >=500) {
+                hulkAppear();
+            };
+           
+        };
+        function removeApples(ammount){
+            var applesLeft = counter - ammount;
+            counter = applesLeft;
+        };
+        function fruitPickerCounter() {
+            fruitCount += 1;
+            fruitPickAmount = fruitCount + " Fruit pickers";
+            amountOfFruitPickers.innerHTML = fruitPickAmount;
+        };
+        // hulk functions
+        function hulkAppear() {
+            if (counter >= 500)
+            {
+                getButton2.style.display = "block" }
+            else { 
+                getButton2.style.display = "none"
+            };
+        };
+        function hulkInterval() {
+            if(counter <= 500) return;
+            removeApples(500);
+            setInterval(function(){ hulkIncome()}, 200)
+            hulkCounter();
+        };
+        function hulkIncome () {
+            let pickingRate = counter += 1;
+            if(hulkPickerUpgrade == true){
+                pickingRate = counter +=1;
+            }
+            counterDiv.innerHTML = pickingRate + " Apples";
+        };
+        function hulkCounter() {
+            hulkCount += 1;
+            hulkInnerHTML = hulkCount + " Raging hulks";
+            amountOfHulks.innerHTML = hulkInnerHTML;
+        };
+        //fruit upgrade
+        function upgrade1Appear() {
+            if (counter <= 200 || applePickerUpgrade == true)
+            {
+                fruitUpgrade.style.display = "none" }
+            else {
+                fruitUpgrade.style.display = "block"
+            }
+        };
+        function upgrade1Work() {
+            if(counter <= 200) return;
+            removeApples(200);
+            applePickerUpgrade = true;
+            disableButton1();
+        }
+        function disableButton1(){
+		    fruitUpgrade.style.display = "none";
+        };
+        function upgrade2Appear() {
+            if (counter <= 2000 || hulkPickerUpgrade == true)
+            {
+                hulkUpgrade.style.display = "none" }
+            else {
+                hulkUpgrade.style.display = "block"
+            }
+        };
+        function upgrade2Work() {
+            if(counter <= 2000) return;
+            removeApples(2000);
+            hulkPickerUpgrade = true;
+            disableButton2();
+        }
+        function disableButton2(){
+		    hulkUpgrade.style.display = "none";
+        };
+        
+    </script>
+    
+</body>
+</html>
