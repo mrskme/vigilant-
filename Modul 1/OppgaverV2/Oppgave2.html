@@ -16,8 +16,10 @@
     <div id="idQuestion3" onclick="question3()">det kommer ann på om dagen er oddetall</div>
 
     <script>
+        var q1HTML = document.getElementById("idQuestion1")
+        
         function question1() {
-            document.getElementById("idQuestion1").innerHTML = "riktig";
+            q1HTML.innerHTML = "riktig";
         };
         function question2() {
             document.getElementById("idQuestion2").innerHTML = "feil";

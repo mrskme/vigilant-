@@ -28,16 +28,16 @@
 
     <div style="font-size: 165%" id="counterDiv"></div><br>
 
-    <button id="button1" onclick="fruitPickerInterval()">Hire one fruit picker for 50 apples</button> <br>
+    <button id="button1" onclick="fruitPickerInterval()">Hire one fruit picker for 25 apples</button> <br>
 
     <div style="font-size: 125%" id="amountOfFruitPickers"></div><br>
 
-    <button id="button2" onclick="hulkInterval()">Hire one fruit hulk to shake apple trees 500 apples</button> <br>
+    <button id="button2" onclick="hulkInterval()">Hire one fruit hulk to shake apple trees 250 apples</button> <br>
 
     <div style="font-size: 125%" id="amountOfHulks"></div>
 
-    <button class="topcorner" id="fruitUpgrade" onclick="upgrade1Work()" >Upgrade fruit pickers to x2 efficiency for 200 apples</button>
-    <button class="topcorner1" id="hulkUpgrade" onclick="upgrade2Work()" >Upgrade hulks to x2 efficiency for 2000 apples</button>
+    <button class="topcorner" id="fruitUpgrade" onclick="upgrade1Work()" >Upgrade fruit pickers to x2 efficiency for 100 apples</button>
+    <button class="topcorner1" id="hulkUpgrade" onclick="upgrade2Work()" >Upgrade hulks to x2 efficiency for 1000 apples</button>
 
 
 
@@ -73,7 +73,7 @@
             hulkUpgrade.style.display = "none"
         };
         function fruitAppear() {
-            if (counter >= 50)
+            if (counter >= 25)
             {
                 getButton1.style.display = "block" }
             else {
@@ -81,8 +81,8 @@
             };
         };
         function fruitPickerInterval() {
-            if(counter <= 50) return;
-            removeApples(50);
+            if(counter <= 25) return;
+            removeApples(25);
             setInterval(function(){ fruitPickerIncome()}, 1000);
             fruitPickerCounter();
         };
@@ -92,10 +92,10 @@
                 pickingRate = counter+=1;
             }
             counterDiv.innerHTML = pickingRate + " Apples";
-            if(pickingRate >= 50) {
+            if(pickingRate >= 25) {
                 fruitAppear();
             } 
-            if (pickingRate >=500) {
+            if (pickingRate >=250) {
                 hulkAppear();
             };
            
@@ -111,7 +111,7 @@
         };
         // hulk functions
         function hulkAppear() {
-            if (counter >= 500)
+            if (counter >= 250)
             {
                 getButton2.style.display = "block" }
             else { 
@@ -119,8 +119,8 @@
             };
         };
         function hulkInterval() {
-            if(counter <= 500) return;
-            removeApples(500);
+            if(counter <= 250) return;
+            removeApples(250);
             setInterval(function(){ hulkIncome()}, 200)
             hulkCounter();
         };
@@ -138,7 +138,7 @@
         };
         //fruit upgrade
         function upgrade1Appear() {
-            if (counter <= 200 || applePickerUpgrade == true)
+            if (counter <= 100 || applePickerUpgrade == true)
             {
                 fruitUpgrade.style.display = "none" }
             else {
@@ -146,25 +146,26 @@
             }
         };
         function upgrade1Work() {
-            if(counter <= 200) return;
-            removeApples(200);
+            if(counter <= 100) return;
+            removeApples(100);
             applePickerUpgrade = true;
             disableButton1();
         }
         function disableButton1(){
-		    fruitUpgrade.style.display = "none";
+            fruitUpgrade.style.display = "none";
+            //hulk upgrade
         };
         function upgrade2Appear() {
-            if (counter <= 2000 || hulkPickerUpgrade == true)
-            {
+            if (counter <= 1000 || hulkPickerUpgrade == true)
+            { 
                 hulkUpgrade.style.display = "none" }
             else {
                 hulkUpgrade.style.display = "block"
             }
         };
         function upgrade2Work() {
-            if(counter <= 2000) return;
-            removeApples(2000);
+            if(counter <= 1000) return;
+            removeApples(1000);
             hulkPickerUpgrade = true;
             disableButton2();
         }
