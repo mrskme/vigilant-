@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .circleBase {
+        border-radius: 50%;
+    }
+    .type1 {
+        width: 100px;
+        height: 100px;
+        background-color: coral;
+        float: left;
+        
+        
+    }
+    .C {
+        clear: both;
+    }
+    .lightOn {
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body onload="stuffOnLoad()">
+    <div class="circleBase type1 C"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+
+    <div class="circleBase type1 C"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+
+    <div class="circleBase type1 C"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+
+    <div class="circleBase type1 C"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+
+    <div class="circleBase type1 C"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+    <div class="circleBase type1"></div>
+
+    <script>
+
+        function turnOnRandom()
+            {
+            var elementsList = document.getElementsByClassName("lamp");
+            var randomIndex = Math.floor(Math.random() * elementsList.length);
+            var selectedElement = elementsList[randomIndex];
+        }
+
+    </script>
+    
+</body>
+</html>

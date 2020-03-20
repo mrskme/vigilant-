@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        .keypad {
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+        }
+        .verify {
+            display: block;
+            width: 50px;
+            height: 50px;
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <button class="keypad" onclick="b1()">1</button>
+        <button class="keypad" onclick="b2()">2</button>
+        <button class="keypad" onclick="b3()">3</button> <br>
+        <button class="keypad" onclick="b4()">4</button>
+        <button class="keypad" onclick="b5()">5</button>
+        <button class="keypad" onclick="b6()">6</button> <br>
+        <button class="keypad" onclick="b7()">7</button>
+        <button class="keypad" onclick="b8()">8</button>
+        <button class="keypad" onclick="b9()">9</button>
+    </div>
+    
+    <button class="verify" onclick="code()">Verify code</button>
+    <button onclick="test()">åpne</button>
+    <div id="info">Tast in koden</div>
+    
+
+
+    <script>
+        var x = 0;
+        var tall1 = 0;
+        var tall2 = 0;
+        var tall3 = 0;
+        var tall4 = 0;
+        var tall5 = 0;
+        var tall6 = 0;
+        var tall7 = 0;
+        var tall8 = 0;
+        var tall9 = 0;
+
+        function b1() {
+            tall1++;
+        }
+        
+        function b2() {
+            tall2++;
+        }
+        function b3() {
+            tall3++;
+        }
+        function b4() {
+            tall4++;
+        }
+        function b5() {
+            tall5++;
+        }
+        function b6() {
+            tall6++;
+        }
+        function b7() {
+            tall7++;
+        }
+        function b8() {
+            tall8++;
+        }
+        function b9() {
+            tall9++;
+        }
+
+        function code() {
+            if (tall3 == 1) {
+                if (tall8 == 1) {
+                    if (tall1 ==1) {
+                        if (tall2 ==1) {
+                            x++;
+                        }
+                    }
+                }
+            }
+                
+            
+
+        }
+
+        function test() {
+            document.getElementById("info").innerHTML = Boolean(x); /*
+            document.getElementById("demo").innerHTML = "tall1=" + tall1 + "<br/>Tall2=" + tall2;*/
+        }
+
+    </script>
+</body>
+</html>

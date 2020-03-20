@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    
+    
+    </style>
+</head>
+<body>
+
+    Dag: <input id="day" onchange="showDayAndTime()" type="range" min="1" max="7"/><br/>
+    Time: <input id="hour" onchange="showDayAndTime()" type="range" min="0" max="23"/><br/>
+    Minutter: <input id="minute" onchange="showDayAndTime()" type="range" min="0" max="59"/><br/>
+    
+    <div id="dayAndTime" style="padding-top: 20px;"></div>
+    <div id="whatDay"></div>
+    <div id="openingTime"></div>
+
+    <script type="text/javascript">
+
+    function showDayAndTime() {
+        var div = document.getElementById('dayAndTime');
+        var day = document.getElementById('day').value;
+        var hour = document.getElementById('hour').value;
+        var minute = document.getElementById('minute').value;
+        var dayNo = parseInt(day);
+        hour = parseInt(hour);
+        var whatDay = document.getElementById('whatDay');
+        var openingTimeDiv = document.getElementById('openingTime');
+        
+        div.innerHTML = "Dag " + day + " - " + hour + ":" + minute;
+
+        if (minute < 10) {
+        div.innerHTML = "Dag " + day + " - " + hour + ":0" + minute;
+        }
+        if (dayNo >= 1 && dayNo <= 4) {
+            if (hour >= 11 && hour <=16) {
+            openingTimeDiv.innerHTML = "Åpent"
+        }}
+        if (dayNo == 5) {
+            if (hour >= 11 && hour <= 17) {
+            openingTimeDiv.innerHTML= "Åpent"
+        }}
+        if (dayNo == 6) {
+            if (hour == 11 || hour == 12 || hour == 13 || hour == 14 ) {
+            openingTimeDiv.innerHTML = "Åpent"
+        }}
+        else {
+            openingTimeDiv.innerHTML = "Stengt"
+        };
+        if (dayNo == 1) {dayNo = 'Mandag'};
+        if (dayNo == 2) {dayNo = 'Tirsdag'};
+        if (dayNo == 3) {dayNo = 'Onsdag'};
+        if (dayNo == 4) {dayNo = 'Torsdag'};
+        if (dayNo == 5) {dayNo = 'Fredag'};
+        if (dayNo == 6) {dayNo = 'Lørdag'};
+        if (dayNo == 7) {dayNo = 'Søndag'};
+
+        if (dayNo == 'Mandag' || dayNo == 'Tirsdag' || dayNo == 'Onsdag' || dayNo == 'Torsdag') {
+            whatDay.innerHTML = "Mandag-Torsdag"
+        };
+        if (dayNo == 'Fredag') {
+            whatDay.innerHTML = "Fredag"
+        };
+        if (dayNo == 'Lørdag') {
+            whatDay.innerHTML = "Lørdag"
+        };
+        if (dayNo == 'Søndag') {
+            whatDay.innerHTML = "Søndag"
+        };
+
+        
+
+        console.log(dayNo) 
+
+    }
+    </script>
+    
+</body>
+</html>
