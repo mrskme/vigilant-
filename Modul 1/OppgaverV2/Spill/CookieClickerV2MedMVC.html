@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div {
+            font-size: 300%;
+
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div onclick="counting()">Clickable</div>
+
+    <div style="display:none" id="countDiv" > </div>
+
+    <button style="display:none" id="clickButtonUpgrade" onclick="clickUpgrade1()">Kjøp oppgradering</button>
+    <button style="display:none" id="clickButtonUpgrade2" onclick="clickUpgrade2()">Kjøp oppgradering</button>
+    <script>
+
+        var countDiv = document.getElementById("countDiv")
+        var clickButtonUpgrade = document.getElementById("clickButtonUpgrade")
+        var clickButtonUpgrade2 = document.getElementById("clickButtonUpgrade2")
+
+        //model
+        var points = 0;
+        var clickUpgrade1Var = 1;
+        var buttonBoolean = false;
+        var buttonBoolean2 = false;
+
+        //controller
+        function counting() {
+            points += clickUpgrade1Var;
+            point++;
+            showCount();
+            showButton();
+            showButton2();
+            showCountDiv();
+
+        }
+        function clickUpgrade1() {
+            if (points < 50) return;
+            removePoints(50)
+            clickUpgrade1Var++;
+            buttonBoolean = true;
+            // showCount();
+            showButton();
+           
+        }
+        function clickUpgrade2() {
+            if (points < 250) return;
+            removePoints(250)
+            clickUpgrade1Var += 2
+            buttonBoolean2 = true;
+            showButton2()
+        }
+        function removePoints(ammount){
+            var pointsLeft = points - ammount;
+            points = pointsLeft;
+        };
+        
+
+
+
+        //view
+        showCount();
+        function showCount() {
+            countDiv.innerHTML = points;
+        }
+        function showCountDiv() {
+            countDiv.style.display = "block";
+        }
+        function showButton() {
+            if (points > 49) {
+                clickButtonUpgrade.style.display ="block";
+                } 
+            if (buttonBoolean == true)  {
+                clickButtonUpgrade.style.display ="none";
+                }
+        }
+        function showButton2() {
+            if (points > 249) {
+                clickButtonUpgrade2.style.display ="block";
+                } 
+            if (buttonBoolean2 == true)  {
+                clickButtonUpgrade2.style.display ="none";
+                }
+        }
+    
+    
+    </script>
+    
+</body>
+</html>

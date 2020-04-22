@@ -55,19 +55,25 @@
     <div onclick="addCharacter('+')">+</div>
 
     <script>
-
+        //model
         var resultBox = document.getElementById('resultBox')
-    
-        function addCharacter(character) {
-            resultBox.innerHTML += character;
-        };
-        function clearResultBox() {
-            resultBox.innerHTML = ""
-        };
+
+        //controller
+
         function calculate() {
             var calculation = resultBox.innerHTML;
             resultBox.innerHTML += '=' + eval(calculation);
         }
+        
+
+        //view
+
+        function clearResultBox() {
+            resultBox.innerHTML = ""
+        };
+        function addCharacter(character) {
+            resultBox.innerHTML += character;
+        };
     
     </script>
     

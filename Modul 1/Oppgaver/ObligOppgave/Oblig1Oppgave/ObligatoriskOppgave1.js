@@ -11,17 +11,14 @@ function isValidDate(date) {
   var yearDot = date.charAt(5);
   var isItLeapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 
-
-  isValid = isLenghtValid(date);
-  isValid = isDotValid(monthDot, yearDot);
-  isValid = isYearValid(year);
-  //isValid = is30Valid(month, day);
-  isValid = isDayValid(day);
-  isValid = isMonthValid(month);
-  //isValid = is31Valid(month, day);
-  //isValid = isLeapYearValid(month, day, isItLeapYear);
-  isValid = isTotallyValidDate(month, day, isItLeapYear);
-  return isValid;
+return isLenghtValid(date) &&
+  isDotValid(monthDot, yearDot) &&
+  isYearValid(year) &&
+  isDayValid(day) &&
+  isMonthValid(month)&&
+  isTotallyValidDate(month, day, isItLeapYear);
+  
+  
 };
 function isLenghtValid(date) {
   return (date.length == 10) ? true : false;
@@ -63,10 +60,19 @@ function isLeapYearValid(month, day, isItLeapYear) {
 };
 
 function isTotallyValidDate(month, day, isItLeapYear) {
-  if (is30Valid(month, day) == true || is31Valid(month, day) == true || isLeapYearValid(month, day, isItLeapYear)) {
-    return true;
+  // if (is30Valid(month, day) == true || is31Valid(month, day) == true || isLeapYearValid(month, day, isItLeapYear)) {
+  //   return true;
+  // }
+  // else {
+  //   return false;
+  // }
+  console.log(month, day, isItLeapYear)
+  if (day.length == 2 && day >= "01" && day <= "28") return true;
+  if (day > "31") return false;
+  if (month != "02") {
+    return day <= "30" || month != "04" && month != "06" && month != "09" && month != "11";
   }
   else {
-    return false;
+    return day == "29" && isItLeapYear;
   }
 }

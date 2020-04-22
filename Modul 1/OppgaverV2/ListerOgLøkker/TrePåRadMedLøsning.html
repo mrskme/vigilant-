@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Tre på rad</title>
+    <style type="text/css">
+        div.cell {
+            color: green;
+            background-color: lightgray;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 2px;
+            font-size: 500%;
+            font-family: helvetica;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+            div.first {
+                clear: left;
+            }
+    </style>
+</head>
+<body>
+    
+    <div id="board"> </div>
+
+    <script type="text/javascript">
+
+    //hjelpevariabler for view og controller
+        
+    let boardDiv = document.getElementById('board')
+
+
+    //modell 
+
+    var board = ['','','', '','','', '','','' ];
+
+    //view
+    setRandomO();
+    showBoard();
+    function showBoard() {
+        let html = '';
+            for (let i = 0; i < 9; i++) {
+                let first = i % 3 == 0 ? 'first' : '';
+                html += `<div onclick="setX(${i})" class="cell color${board[i]} ${first}">${board[i]}</div>`;
+            }
+            boardDiv.innerHTML = html;
+        }
+        setX();
+    function setX() {
+        
+    }
+    </script>
+</body>
+</html>

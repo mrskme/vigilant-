@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <style>
-    
-    
+
+
     </style>
 </head>
 <body>
@@ -11,7 +11,7 @@
     Dag: <input id="day" onchange="showDayAndTime()" type="range" min="1" max="7"/><br/>
     Time: <input id="hour" onchange="showDayAndTime()" type="range" min="0" max="23"/><br/>
     Minutter: <input id="minute" onchange="showDayAndTime()" type="range" min="0" max="59"/><br/>
-    
+
     <div id="dayAndTime" style="padding-top: 20px;"></div>
     <div id="whatDay"></div>
     <div id="openingTime"></div>
@@ -27,54 +27,59 @@
         hour = parseInt(hour);
         var whatDay = document.getElementById('whatDay');
         var openingTimeDiv = document.getElementById('openingTime');
-        
-        div.innerHTML = "Dag " + day + " - " + hour + ":" + minute;
+
+        if (dayNo >= 1 && dayNo <= 4 && hour >= 11 && hour <=16) {
+            // whatDay.innerHTML = "Mandag-Torsdag"
+            openingTimeDiv.innerHTML = "Åpent"
+            
+            // else {openingTimeDiv.innerHTML = "Stengt"}
+        }
+        else if (dayNo == 5 && hour >= 11 && hour <= 17) {
+            // whatDay.innerHTML = "Fredag"
+            openingTimeDiv.innerHTML= "Åpent"
+
+            // else {openingTimeDiv.innerHTML = "Stengt"}
+        }
+        else if (dayNo == 6 && hour == 11 || hour == 12 || hour == 13 || hour == 14 ) {
+            // whatDay.innerHTML = "Lørdag"
+            openingTimeDiv.innerHTML = "Åpent"
+            
+            // else {openingTimeDiv.innerHTML = "Stengt"}
+        }
+        else {
+            openingTimeDiv.innerHTML = "stengt"
+            // whatDay.innerHTML = "Søndag"
+        };
+        if (dayNo == 1) {day = 'Mandag'};
+        if (dayNo == 2) {day = 'Tirsdag'};
+        if (dayNo == 3) {day = 'Onsdag'};
+        if (dayNo == 4) {day = 'Torsdag'};
+        if (dayNo == 5) {day = 'Fredag'};
+        if (dayNo == 6) {day = 'Lørdag'};
+        if (dayNo == 7) {day = 'Søndag'};
+
+        div.innerHTML = day + " - " + hour + ":" + minute;
 
         if (minute < 10) {
-        div.innerHTML = "Dag " + day + " - " + hour + ":0" + minute;
+        div.innerHTML = day + " - " + hour + ":0" + minute;
         }
-        if (dayNo >= 1 && dayNo <= 4) {
-            if (hour >= 11 && hour <=16) {
-            openingTimeDiv.innerHTML = "Åpent"
-        }}
-        if (dayNo == 5) {
-            if (hour >= 11 && hour <= 17) {
-            openingTimeDiv.innerHTML= "Åpent"
-        }}
-        if (dayNo == 6) {
-            if (hour == 11 || hour == 12 || hour == 13 || hour == 14 ) {
-            openingTimeDiv.innerHTML = "Åpent"
-        }}
-        else {
-            openingTimeDiv.innerHTML = "Stengt"
-        };
-        if (dayNo == 1) {dayNo = 'Mandag'};
-        if (dayNo == 2) {dayNo = 'Tirsdag'};
-        if (dayNo == 3) {dayNo = 'Onsdag'};
-        if (dayNo == 4) {dayNo = 'Torsdag'};
-        if (dayNo == 5) {dayNo = 'Fredag'};
-        if (dayNo == 6) {dayNo = 'Lørdag'};
-        if (dayNo == 7) {dayNo = 'Søndag'};
 
-        if (dayNo == 'Mandag' || dayNo == 'Tirsdag' || dayNo == 'Onsdag' || dayNo == 'Torsdag') {
-            whatDay.innerHTML = "Mandag-Torsdag"
-        };
-        if (dayNo == 'Fredag') {
-            whatDay.innerHTML = "Fredag"
-        };
-        if (dayNo == 'Lørdag') {
-            whatDay.innerHTML = "Lørdag"
-        };
-        if (dayNo == 'Søndag') {
-            whatDay.innerHTML = "Søndag"
-        };
+        // if (dayNo == 'Mandag' || dayNo == 'Tirsdag' || dayNo == 'Onsdag' || dayNo == 'Torsdag') {
+        //     whatDay.innerHTML = "Mandag-Torsdag"
+        // };
+        // if (dayNo == 'Fredag') {
+        //     whatDay.innerHTML = "Fredag"
+        // };
+        // if (dayNo == 'Lørdag') {
+        //     whatDay.innerHTML = "Lørdag"
+        // };
+        // if (dayNo == 'Søndag') {
+        //     whatDay.innerHTML = "Søndag"
+        // };
 
-        
-
-        console.log(dayNo) 
-
+        console.log(dayNo)
     }
     </script>
-    
+
 </body>
 </html>

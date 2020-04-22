@@ -1,0 +1,79 @@
+var contentDiv = document.getElementById("content");
+      
+
+      // model
+      let numbers = [7, 3, 1, 5, 8];
+      let disabledOrNot = "disabled";
+      let borderOrNot = "";
+      var valgtStolpe = 0;
+
+      // view
+      show();
+      function show() {
+        var svgInnerHtml = "";
+        for (let i = 0; i < numbers.length; i++) {
+          svgInnerHtml += createBar(numbers[i], i + 1, valgtStolpe == i + 1);
+        }
+        contentDiv.innerHTML = `
+                <svg id="chart" width="500" viewBox="0 0 80 60">
+                    ${svgInnerHtml}
+                </svg><br/>
+                Valgt stolpe: <i>${valgtStolpe}</i>
+                <br />
+                Verdi:
+                <input type="number" min="1" max="10" id="inputId" />
+                <button onclick="leggTilStolpe()">Legg til stolpe</button>
+                <button ${disabledOrNot} onclick="endreValgtStolpe()">Endre valgt stolpe</button><br />
+                <button ${disabledOrNot} onclick="fjernStolpe()">Fjerne valgt stolpe</button>
+                `;
+      }
+
+      function createBar(number, barNo, selected) {
+        const width = 8;
+        const spacing = 2;
+        var x = (barNo - 1) * (width + spacing);
+        var height = number * 7.5;
+        var y = 60 - height;
+        var color = calcColor(1, 10, barNo);
+        if (selected) {
+          borderOrNot = "black";
+        } else {
+          borderOrNot = "white";
+        }
+        return `<rect onclick="velgStolpe(${barNo})" width="${width}" height="${height}"
+                                x="${x}" y="${y}" fill="${color}" stroke="${borderOrNot}"></rect>`;
+      }
+function velgStolpe(clickedStolpe) { //Hva er clickedStolpe og valgtStolpe?
+    disabledOrNot = "";
+    if (valgtStolpe == clickedStolpe) valgtStolpe = 0;
+    else {
+      valgtStolpe = clickedStolpe; 
+    }
+    show();
+  }
+
+  function leggTilStolpe() {
+    var input = document.getElementById("inputId").value;
+    if (input >= 1 && input <= 10) {
+      numbers.push(input);
+      show();
+    } else {
+      alert("Velg et tall mellom 1 og 10")
+    }
+  }
+
+  function endreValgtStolpe() {
+    var input = document.getElementById("inputId").value;
+    if (input >= 1 && input <= 10) {
+    numbers[valgtStolpe - 1] = input;
+    show(); 
+    }
+    else {
+    alert("Velg et tall mellom 1 og 10")
+    }
+  }
+
+  function fjernStolpe() {
+    numbers.splice(valgtStolpe - 1, 1);
+    show();
+  }
