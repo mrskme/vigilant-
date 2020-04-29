@@ -9,7 +9,6 @@
     <script>
       // hjelpevariable for både view og controller
       var contentDiv = document.getElementById("content");
-      
 
       // model
       let numbers = [7, 3, 1, 5, 8];
@@ -62,14 +61,17 @@
           "hsl(" + (curPercent * (maxHue - minHue) + minHue) + ",100%,50%)";
         return colString;
       }
-      
-      // controller (ingenting her ennå)
 
-      function velgStolpe(clickedStolpe) { //Hva er clickedStolpe og valgtStolpe?
+      // controller
+
+      function velgStolpe(clickedStolpe) {
+        //Hva er clickedStolpe og valgtStolpe?
         disabledOrNot = "";
-        if (valgtStolpe == clickedStolpe) valgtStolpe = 0;
-        else {
-          valgtStolpe = clickedStolpe; 
+        if (valgtStolpe == clickedStolpe) {
+          valgtStolpe = 0;
+          disabledOrNot = "disabled";
+        } else {
+          valgtStolpe = clickedStolpe;
         }
         show();
       }
@@ -80,18 +82,17 @@
           numbers.push(input);
           show();
         } else {
-          alert("Velg et tall mellom 1 og 10")
+          alert("Velg et tall mellom 1 og 10");
         }
       }
 
       function endreValgtStolpe() {
         var input = document.getElementById("inputId").value;
         if (input >= 1 && input <= 10) {
-        numbers[valgtStolpe - 1] = input;
-        show(); 
-        }
-        else {
-        alert("Velg et tall mellom 1 og 10")
+          numbers[valgtStolpe - 1] = input;
+          show();
+        } else {
+          alert("Velg et tall mellom 1 og 10");
         }
       }
 
@@ -99,8 +100,6 @@
         numbers.splice(valgtStolpe - 1, 1);
         show();
       }
-
-
     </script>
   </body>
 </html>

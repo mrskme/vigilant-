@@ -1,50 +1,52 @@
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>QUnit Example</title>
-  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
-</head>
-<body>
-  <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
-  <script src="ObligatoriskOppgave1.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>QUnit Example</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/qunit/qunit-2.9.2.css"
+    />
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="ObligatoriskOppgave1.js"></script>
 
-  <script>
-    
-    QUnit.test("lengthcheck - 'date'", function (assert) {
-    const isValid = isValidDate('03.01.2020');
-    assert.equal(isValid, true);
-    });
-    QUnit.test("dotcheck - 'date'", function (assert) {
-    const isValid = isValidDate('03.01.2020');
-    assert.equal(isValid, true);
-    });
-    QUnit.test("yearcheck - 'date'", function (assert) {
-    const isValid = isValidDate('03.01.1999');
-    assert.equal(isValid, true);
-    });
-    //   QUnit.test("31daycheck - 'date'", function (assert) {
-    // const isValid = isValidDate('03.05.2020');
-    // assert.equal(isValid, true );
-    // });
-    // QUnit.test("30daycheck - 'date'", function (assert) {
-    // const isValid = isValidDate('28.03.2020');
-    // assert.equal(isValid, true);
-    // });
-    QUnit.test("daycheck - 'date'", function (assert) {
-    const isValid = isValidDate('23.03.2020');
-    assert.equal(isValid, true);
-    });
-    QUnit.test("monthcheck - 'date'", function (assert) {
-    const isValid = isValidDate('03.12.2020');
-    assert.equal(isValid, true);
-    });
-    QUnit.test("is it a valid date compared to month? - 'date'", function (assert) {
-    const isValid = isValidDate('29.02.2020');
-    assert.equal(isValid, true);
-    });
-    
-</script>
-
+    <script>
+      QUnit.test("lengthcheck - 'date'", function (assert) {
+        const isValid = isValidDate("03.01.2020");
+        assert.equal(isValid, true);
+      });
+      QUnit.test("dotcheck - 'date'", function (assert) {
+        const isValid = isValidDate("03.01.2020");
+        assert.equal(isValid, true);
+      });
+      QUnit.test("yearcheck - 'date'", function (assert) {
+        const isValid = isValidDate("03.01.1999");
+        assert.equal(isValid, true);
+      });
+      //   QUnit.test("31daycheck - 'date'", function (assert) {
+      // const isValid = isValidDate('03.05.2020');
+      // assert.equal(isValid, true );
+      // });
+      // QUnit.test("30daycheck - 'date'", function (assert) {
+      // const isValid = isValidDate('28.03.2020');
+      // assert.equal(isValid, true);
+      // });
+      // QUnit.test("daycheck - 'date'", function (assert) {
+      //   const isValid = isValidDate("23.03.2020");
+      //   assert.equal(isValid, true);
+      // });
+      QUnit.test("monthcheck - 'date'", function (assert) {
+        const isValid = isValidDate("03.12.2020");
+        assert.equal(isValid, true);
+      });
+      QUnit.test("isValidDay - 'date'", function (assert) {
+        const isValid = isValidDate("29.02.2020");
+        assert.equal(isValid, true);
+      });
+    </script>
+  </body>
+</html>
