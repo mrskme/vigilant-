@@ -48,8 +48,10 @@
     </ol>
     <table id="tasksTable"></table>
     <p>
-      Oppgave:<input id="taskDescription" type="text" /><br />
-      Navn:<input id="taskName" type="text" />
+      Navn: <br />
+      <input id="taskName" type="text" /><br />
+      Oppgave: <br />
+      <input id="taskDescription" type="text" />
 
       <button onclick="addTask()">Legg til oppgave</button>
     </p>
@@ -109,6 +111,7 @@
                         </tr>
                         `;
         return `<tr>
+                            <td><input id="editName${i}" type="text" value="${person.name}"/></td>
                             <td><input id="editDescription${i}" type="text" value="${task.description}"/></td>
                             <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} /></td>
                             <td>
@@ -135,10 +138,14 @@
       }
 
       function updateTask(index) {
-        const id = `editDescription${index}`;
-        const inputTag = document.getElementById(id);
+        const idDesc = `editDescription${index}`;
+        const idName = `editName${index}`;
+        const inputTagDesc = document.getElementById(idDesc);
+        const inputTagName = document.getElementById(idName);
         const task = tasks[index];
-        task.description = inputTag.value;
+        const person = persons[index];
+        task.description = inputTagDesc.value;
+        person.name = inputTagName.value;
         task.editMode = false;
         show();
       }
