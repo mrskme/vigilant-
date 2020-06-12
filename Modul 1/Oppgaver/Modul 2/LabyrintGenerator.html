@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-spacing: 0;
+      }
+      td {
+        padding: 0;
+      }
+      td.room {
+        width: 40px;
+        height: 40px;
+      }
+      td.wall {
+        background-color: black;
+      }
+      td.noWall {
+        background-color: orange;
+      }
+      .small {
+        width: 10px;
+        height: 10px;
+      }
+      td.wide {
+        width: 40px;
+      }
+      td.high {
+        height: 40px;
+        border: solid blue 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="labyrint"></div>
+    <script>
+      var mazeModel = {
+        size: 3,
+        rows: [
+          [
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+          ],
+          [
+            { type: "high wall", isOpen: false },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: true },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: false },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: false },
+          ],
+          [
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: true },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+          ],
+          [
+            { type: "high wall", isOpen: false },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: false },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: true },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: false },
+          ],
+          [
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: true },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: true },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+          ],
+          [
+            { type: "high wall", isOpen: false },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: false },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: true },
+            { type: "room", isOpen: true },
+            { type: "high wall", isOpen: false },
+          ],
+          [
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+            { type: "wide wall", isOpen: false },
+            { type: "small wall", isOpen: false },
+          ],
+        ],
+      };
+
+      //hjelpevariabler til controller og view
+
+      updateView();
+
+      function updateView() {
+        var maze = document.getElementById("labyrint");
+        var html = "";
+        var isRoomOpen = "";
+        html += `<tr>`;
+        for (item in mazeModel.rows) {
+          if (item.isOpen == true) {
+            isRoomOpen = "room";
+          }
+          html += `<tr>`;
+          for (i = 0; i < 7; i++) {
+            html += `<td class="${mazeModel.rows[item][item].type}${isRoomOpen}"></td>`;
+            console.log(item);
+          }
+          html += `</tr>`;
+          html += `<tr>`;
+          for (i = 0; i < 7; i++) {
+            html += `<td class="high"></td>`;
+          }
+          html += `</tr>`;
+        }
+        html += `</tr>`;
+        maze.innerHTML = `<table> ${html} </table>`;
+        console.log(maze);
+      }
+    </script>
+  </body>
+</html>

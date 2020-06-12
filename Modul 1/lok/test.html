@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-    
+  <head>
+    <style>
+      div {
+        user-select: none;
+      }
+      p {
+        font-size: 200px;
+      }
+      button {
+        font-size: 40px;
+        font-family: "Times New Roman", Times, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button onclick="terning()">Terning</button>
+      <button onclick="toTerninger()">To terninger</button>
+      <p id="tall"></p>
+    </div>
     <script>
+      //model
 
-        matte(25);
-        
-        matte();
-        
-        function matte(number) {
-        document.write(Math.sqrt(number));
+      var terningDiv = document.getElementById("tall");
+
+      var tallTest = Math.ceil(Math.random() * 10);
+
+      console.log(tallTest);
+
+      //view
+      function terning() {
+        var tall = Math.ceil(Math.random() * 6);
+
+        terningDiv.innerHTML = tall;
+
+        if (tall == 6) {
+          terningDiv.innerHTML += `<br>  WOW`;
         }
-        matte
+      }
+      function toTerninger() {
+        var tall = Math.ceil(Math.random() * 6);
+        var tall2 = Math.ceil(Math.random() * 6);
 
-        
+        terningDiv.innerHTML = tall + "      " + tall2;
+
+        if (tall == 6 && tall2 == 6) terningDiv.innerHTML += " INSANE!";
+      }
     </script>
-</body>
+  </body>
 </html>

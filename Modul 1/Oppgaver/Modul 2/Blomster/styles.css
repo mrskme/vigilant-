@@ -1,0 +1,28 @@
+body {
+  font-size: 3vmin;
+}
+
+.radio {
+  border: 2px solid rgb(0, 0, 173);
+  border-radius: 50%;
+  width: 3vmin;
+  height: 3vmin;
+  margin-right: 1vmin;
+}
+
+.action {
+  user-select: none;
+  display: flex;
+}
+
+.selectedRadio {
+  background-color: rgb(0, 0, 173);
+  border-radius: 50%;
+  width: 2vmin;
+  height: 2vmin;
+  margin: 0.5vmin;
+}
+
+.actions {
+  color: rgb(0, 0, 173);
+}
