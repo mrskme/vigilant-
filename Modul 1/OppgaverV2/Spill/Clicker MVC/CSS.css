@@ -1,3 +1,12 @@
+.everythingDiv {
+  position: relative;
+  top: 40px;
+  left: 60px;
+}
+.perSec {
+  position: relative;
+  left: 15px;
+}
 .tooltip {
     position: relative;
     display: inline-block;
@@ -8,20 +17,20 @@
 }
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 100px;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    left: 50%;
+    bottom: 130%; 
+    left: 80%;
     margin-left: -60px;
     opacity: 0;
-    transition: opacity .3s;
+    transition: opacity 0s;
   }
-  .tooltip .tooltiptext::after {
+.tooltip .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -30,7 +39,60 @@
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
+}
+.points {
+      font-size: 30px;
+      position: relative;
+      top: 12px;
+      left: 15px;
+}
+.income {
+    position: relative;
+    left: 129px;
+    bottom: 55px;
+}
+.mouseClicker {
+    position: relative;
+    bottom: 19px;
+    left: 175px;
   }
-  .points {
-      font-size: 21px;
-  }
+.upgradesBox {
+  border: 4px solid black;
+  height: 300px;
+  width: 250px;
+  position: relative;
+  left: 275px;
+  bottom: 150px;
+}
+.upgradeUpgradesBox {
+
+    border: 4px solid black;
+    height: 300px;
+    width: 250px;
+    position: relative;
+    left: 600px;
+    bottom: 459px;
+}
+.AutomaticHeadline {
+  text-align: center;
+}
+.mouseClickerButton {
+  position: relative;
+  top: 10px;
+  left: 25px;
+}
+.mouseClickerDiv {
+  position: relative;
+  left: 197px;
+  bottom: 10px;
+}
+.monkeyButton {
+  position: relative;
+  top: 23px;
+  left: 25px;
+}
+.monkeyDiv {
+  position: relative;
+  top: 3px;
+  left: 121px;
+}
