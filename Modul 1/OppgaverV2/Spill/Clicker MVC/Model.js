@@ -4,81 +4,115 @@ let model = {
     whichClicking: 1,
     pointsPerSecond: 1,
     pointsPerMousepowerUpgrade: 0,
-    incomeVar: 0,
+    workerIncome: 4,
+    monkeyIncome1: 30,
     globalIncome: 0,
-    monkeyIncome1: 0,
-    monkeyIncomeVar: 0,
     price: 20,
     workerPrice: 100,
     workerCount: 0,
     monkeyPrice: 500,
     monkeyCount: 0,
+    monkeyUpgradePrice: 5000,
+    monkeyUpgradeCount: 0,
+    workerUpgradePrice: 500,
+    workerUpgradeCount: 0,
     hideClickerUpgrade: 'none',
     hideWorkerUpgrade: 'none',
+    hideUpgradesUpgrades: 'none',
     hideIncome: 'none',
     hideMonkey: 'none',
     buttonText: 'Mousepower lvl 1',
-
-
     //functions
     counting: function() {
         this.points = this.points + this.pointsUpgrade
         this.hideOrNot1()
         this.hideOrNot2()
+        this.hideOrNot3()
+        updatePoints()
         updateView()
+        
+    },
+    makeGlobalIncome: function() {
+        if (this.workerCount >= 1) {
+            this.globalIncome = this.workerIncome * this.workerCount
+        }
+        if (this.monkeyCount >= 1) {
+            this.globalIncome = (this.monkeyIncome1 * this.monkeyCount) + (this.workerIncome * this.workerCount)
+        }
     },
     hideOrNot1: function() {
-        if (this.points >= this.price) 
-        this.hideClickerUpgrade = 'block', updateView()
+        if (this.points >= this.price)
+        this.hideClickerUpgrade = 'block'
     },
     hideOrNot2: function() {
         if (this.points >= this.workerPrice) 
-        this.hideWorkerUpgrade = 'block', updateView()
+        this.hideWorkerUpgrade = 'block'
+    },
+    hideOrNot3: function () {
+        if (this.points >= this.workerUpgradePrice)
+        this.hideUpgradesUpgrades = 'block'
     },
     //worker
     hire1Worker: function () {
         if (this.points < this.workerPrice) return; 
         removePoints(this.workerPrice)
         this.hideIncome = 'block'
-        this.incomeVar = 4
-        this.globalIncome += 4
         setInterval(function(){ model.income()}, 1000)
         this.workerCount++
-        updateView()
+        // model.globalIncome += model.workerIncome
+        this.makeGlobalIncome()
+        updatePoints()
+        // updateView()
+        
     },
     income: function () {
-        this.points+=this.incomeVar
-        updateView()
+        this.points+=this.workerIncome
+        updatePoints()
         this.hideOrNot1()
         this.hideOrNot2()
+        this.hideOrNot3()
     },
     //workerUpgrade
     workerUpgrade() {
-        this.incomeVar *= 2
-        this.globalIncome *= 2
-        updateView()
+        this.workerUpgradePrice = ((500 * 5) * (1+(this.workerUpgradeCount)))
+        if (this.workerCount >= 1) {
+            this.points -= this.workerUpgradePrice
+            this.workerIncome = this.workerIncome * 2
+            this.workerUpgradeCount++
+            this.makeGlobalIncome()
+            console.log(this.globalIncome, this.workerIncome )
+            updateView()
+    }
     },
     //monkey
+    
     hire2Monkey: function () {
         if (this.points < this.monkeyPrice) return; 
         removePoints(this.monkeyPrice)
+        this.hideIncome = 'block'
         this.hideMonkey = 'block'
-        this.monkeyIncomeVar = 30
-        this.globalIncome += 30
         setInterval(function(){ model.monkeyIncome()}, 1000)
         this.monkeyCount++
-        console.log("incomeVar: " + this.monkeyIncomeVar, "globalIncome: " +  this.globalIncome, "workerCount" + this.workerCount)
+        // model.globalIncome += model.monkeyIncome1
+        this.makeGlobalIncome()
         updateView()
     },
     monkeyIncome: function () {
-        this.points+=this.monkeyIncomeVar
-        updateView()
+        this.points+=this.monkeyIncome1
+        updatePoints()
     },
     //monkeyUpgrade
     monkeyUpgrade() {
-        this.monkeyIncomeVar *= 2
-        this.globalIncome *= 2
-        updateView()
+        this.monkeyUpgradePrice = ((1000 * 5) * (1+(this.monkeyUpgradeCount)))
+        if (this.monkeyCount >= 1) {
+            this.points -= this.monkeyUpgradePrice
+            this.monkeyIncome1 = this.monkeyIncome1 * 2
+            this.monkeyUpgradeCount++
+            this.makeGlobalIncome()
+            updatePoints()
+            updateView()
+
+        }
     },
     //mouseUpgrade
     clickerUpgrade1: function() {
@@ -89,6 +123,7 @@ let model = {
         this.hideClickerUpgrade = "block",
         this.whichClicking++
         this.buttonText = 'Mousepower lvl ' + this.whichClicking
+        updatePoints()
         console.log(this.price)
     },
     
@@ -159,7 +194,10 @@ let model = {
         this.price = 19999
         console.log("upgrade9")
     },
+    
 }
+
+
 
 //når man har 10 aper kan man kjøpe en automatic clicker upgrade som gir x2 på ape
 // test ut prosent på height og width /top bottom for rezising

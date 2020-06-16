@@ -4,8 +4,9 @@
   left: 60px;
 }
 .perSec {
-  position: relative;
-  left: 15px;
+  position: absolute;
+  top: 265px;
+  left: 20px;
 }
 .tooltip {
     position: relative;
@@ -42,14 +43,14 @@
 }
 .points {
       font-size: 30px;
-      position: relative;
-      top: 12px;
-      left: 15px;
+      position: absolute;
+      top: 38px;
+      left: 210px;
 }
 .income {
     position: relative;
-    left: 129px;
-    bottom: 55px;
+    left: 0px;
+    top: 20px;
 }
 .mouseClicker {
     position: relative;
@@ -62,19 +63,22 @@
   width: 250px;
   position: relative;
   left: 275px;
-  bottom: 150px;
+  bottom: 100px;
 }
 .upgradeUpgradesBox {
-
     border: 4px solid black;
     height: 300px;
     width: 250px;
     position: relative;
     left: 600px;
-    bottom: 459px;
+    bottom: 409px;
 }
 .AutomaticHeadline {
   text-align: center;
+}
+.clickUpgrade {
+position: relative;
+top:20px;
 }
 .mouseClickerButton {
   position: relative;
@@ -88,11 +92,21 @@
 }
 .monkeyButton {
   position: relative;
-  top: 23px;
+  top: 10px;
   left: 25px;
 }
 .monkeyDiv {
   position: relative;
-  top: 3px;
   left: 121px;
+  bottom: 9px;
+}
+.workerUpgradeCount{
+  position: relative;
+  left:202px;
+  bottom: 10px;
+}
+.monkeyUpgradeCount {
+  position: relative;
+  left: 182px;
+  bottom: 10px;
 }

@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="content"></div>
+    <div id='points'></div>
 
 
 
@@ -19,8 +20,10 @@
     <script src="Controller.js"></script>
     <link rel="stylesheet" href="CSS.css">
 
-    <script>updateView();
-    console.log("hei kristian")</script>   
+    <script>
+    updateView();
+    setInterval(function(){updatePoints()}, 100)
+    </script>   
     <!-- setInterval(function(){ updateView()}, 1000)  -->
 </body>
 </html>
