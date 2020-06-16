@@ -62,7 +62,7 @@ let model = {
         // model.globalIncome += model.workerIncome
         this.makeGlobalIncome()
         updatePoints()
-        // updateView()
+        updateView()
         
     },
     income: function () {
