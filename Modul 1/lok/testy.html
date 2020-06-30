@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <script>
+       const promise = new Promise((resolve, reject) => {
+           setTimeout(() => {
+               console.log("got the user");
+               resolve("User logged in");
+           }, 2000);
+       });
+
+       promise
+            .then(kake => {
+                console.log(kake);
+            })
+            .then(eple =>{
+                console.log(eple)
+            })
+            .catch(errorino => console.log(errorino));
+        promise.then(kake => {
+                console.log(kake);
+                return kake;
+            })
+    </script>
+
+
+<div id="title"></div>
+<div id="title"></div>
+<div id="title"></div>
+<div id="title"></div>
+    
+</body>
+</html>

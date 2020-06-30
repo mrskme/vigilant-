@@ -30,7 +30,6 @@ let model = {
         this.hideOrNot3()
         updatePoints()
         updateView()
-        
     },
     makeGlobalIncome: function() {
         if (this.workerCount >= 1) {
@@ -59,11 +58,8 @@ let model = {
         this.hideIncome = 'block'
         setInterval(function(){ model.income()}, 1000)
         this.workerCount++
-        // model.globalIncome += model.workerIncome
         this.makeGlobalIncome()
-        updatePoints()
-        updateView()
-        
+        updatePoints(), updateView()
     },
     income: function () {
         this.points+=this.workerIncome
@@ -74,15 +70,17 @@ let model = {
     },
     //workerUpgrade
     workerUpgrade() {
-        this.workerUpgradePrice = ((500 * 5) * (1+(this.workerUpgradeCount)))
         if (this.workerCount >= 1) {
-            this.points -= this.workerUpgradePrice
-            this.workerIncome = this.workerIncome * 2
-            this.workerUpgradeCount++
-            this.makeGlobalIncome()
-            console.log(this.globalIncome, this.workerIncome )
-            updateView()
+            if (this.points >= this.workerUpgradePrice) {
+                this.points -= this.workerUpgradePrice
+                this.workerUpgradePrice *= 2
+                this.workerIncome = this.workerIncome * 2
+                this.workerUpgradeCount++
+                this.makeGlobalIncome()
+                console.log(this.globalIncome, this.workerIncome )
+                updateView()
     }
+}
     },
     //monkey
     
@@ -93,7 +91,6 @@ let model = {
         this.hideMonkey = 'block'
         setInterval(function(){ model.monkeyIncome()}, 1000)
         this.monkeyCount++
-        // model.globalIncome += model.monkeyIncome1
         this.makeGlobalIncome()
         updateView()
     },
@@ -103,16 +100,17 @@ let model = {
     },
     //monkeyUpgrade
     monkeyUpgrade() {
-        this.monkeyUpgradePrice = ((1000 * 5) * (1+(this.monkeyUpgradeCount)))
         if (this.monkeyCount >= 1) {
-            this.points -= this.monkeyUpgradePrice
-            this.monkeyIncome1 = this.monkeyIncome1 * 2
-            this.monkeyUpgradeCount++
-            this.makeGlobalIncome()
-            updatePoints()
-            updateView()
-
+            if (this.points >= this.monkeyUpgradePrice){
+                this.monkeyUpgradePrice *= 2
+                this.points -= this.monkeyUpgradePrice
+                this.monkeyIncome1 = this.monkeyIncome1 * 2
+                this.monkeyUpgradeCount++
+                this.makeGlobalIncome()
+                updatePoints()
+                updateView()
         }
+    }
     },
     //mouseUpgrade
     clickerUpgrade1: function() {
@@ -194,10 +192,13 @@ let model = {
         this.price = 19999
         console.log("upgrade9")
     },
-    
 }
 
 
 
-//når man har 10 aper kan man kjøpe en automatic clicker upgrade som gir x2 på ape
+//når man har 5,10,15 osv aper/worker kan man kjøpe en automatic clicker upgrade som gir x2 på ape
 // test ut prosent på height og width /top bottom for rezising
+// legg til sånn at man ikke kan kjøpe oppgraderinger uten penger
+// tooltip cost fix
+// mousepower upgrade power fix
+// fix navn på ingame lvl 1 clicker fra mouseclicker til worker 
