@@ -10,7 +10,7 @@ function updateView() {
 
         <div class='upgradesBox' style='display:${model.hideWorkerUpgrade}'>
             <h3 class='AutomaticHeadline'>Automatic Clickers!</h3>
-            <button class="tooltip mouseClickerButton" onclick='model.hire1Worker()'>Hire trained mouseclicker<span class="tooltiptext">+${model.workerIncome} Per second </br> Price: ${model.workerPrice} </span></button>
+            <button class="tooltip mouseClickerButton" onclick='model.hire1Worker()'>Hire trained worker<span class="tooltiptext">+${model.workerIncome} Per second </br> Price: ${model.workerPrice} </span></button>
             <div class='mouseClickerDiv'>: ${model.workerCount}</div>
             <button onclick='model.hire2Monkey()'class='monkeyButton tooltip'>Hire monkey<span class="tooltiptext">+${model.monkeyIncome1} Per second </br> Price: 500 </span></button>
             <div class='monkeyDiv'>: ${model.monkeyCount}</div>
@@ -19,7 +19,7 @@ function updateView() {
 
         <div class='upgradeUpgradesBox' style='display:${model.hideUpgradesUpgrades}'>
             <h3 class='AutomaticHeadline'>Auto Clickers Upgrades!</h3>
-            <button class="tooltip mouseClickerButton" onclick='model.workerUpgrade()'>Train trained mouseclicker<span class="tooltiptext"> 2 * Mouseclicker efficiency </br> Cost: ${model.workerUpgradePrice}</span></button>
+            <button class="tooltip mouseClickerButton" onclick='model.workerUpgrade()'>Train trained worker<span class="tooltiptext"> 2 * Mouseclicker efficiency </br> Cost: ${model.workerUpgradePrice}</span></button>
             <div class='workerUpgradeCount'>: ${model.workerUpgradeCount}</div>
 
             <button class="tooltip mouseClickerButton" onclick='model.monkeyUpgrade()'>Give monkey a banana<span class="tooltiptext"> 2 * Monkey efficiency</br> Cost: ${model.monkeyUpgradePrice}</span></button>

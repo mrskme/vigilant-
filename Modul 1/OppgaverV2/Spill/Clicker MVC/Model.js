@@ -1,5 +1,5 @@
 let model = {
-    points: 0,
+    points: 5000,
     pointsUpgrade: 1,
     whichClicking: 1,
     pointsPerSecond: 1,
@@ -41,26 +41,26 @@ let model = {
     },
     hideOrNot1: function() {
         if (this.points >= this.price)
-        this.hideClickerUpgrade = 'block'
-    },
+            this.hideClickerUpgrade = 'block'
+        },
     hideOrNot2: function() {
         if (this.points >= this.workerPrice) 
-        this.hideWorkerUpgrade = 'block'
-    },
+            this.hideWorkerUpgrade = 'block'
+        },
     hideOrNot3: function () {
         if (this.points >= this.workerUpgradePrice)
-        this.hideUpgradesUpgrades = 'block'
-    },
+            this.hideUpgradesUpgrades = 'block'
+        },
     //worker
     hire1Worker: function () {
-        if (this.points < this.workerPrice) return; 
-        removePoints(this.workerPrice)
-        this.hideIncome = 'block'
-        setInterval(function(){ model.income()}, 1000)
-        this.workerCount++
-        this.makeGlobalIncome()
-        updatePoints(), updateView()
-    },
+        if (this.points < this.workerPrice) return;
+            removePoints(this.workerPrice)
+            this.hideIncome = 'block'
+            setInterval(function(){ model.income()}, 1000)
+            this.workerCount++
+            this.makeGlobalIncome()
+            updatePoints(), updateView()
+        },
     income: function () {
         this.points+=this.workerIncome
         updatePoints()
@@ -79,20 +79,20 @@ let model = {
                 this.makeGlobalIncome()
                 console.log(this.globalIncome, this.workerIncome )
                 updateView()
-    }
-}
+            }
+        }
     },
     //monkey
     
     hire2Monkey: function () {
         if (this.points < this.monkeyPrice) return; 
-        removePoints(this.monkeyPrice)
-        this.hideIncome = 'block'
-        this.hideMonkey = 'block'
-        setInterval(function(){ model.monkeyIncome()}, 1000)
-        this.monkeyCount++
-        this.makeGlobalIncome()
-        updateView()
+            removePoints(this.monkeyPrice)
+            this.hideIncome = 'block'
+            this.hideMonkey = 'block'
+            setInterval(function(){ model.monkeyIncome()}, 1000)
+            this.monkeyCount++
+            this.makeGlobalIncome()
+            updateView()
     },
     monkeyIncome: function () {
         this.points+=this.monkeyIncome1
@@ -109,21 +109,21 @@ let model = {
                 this.makeGlobalIncome()
                 updatePoints()
                 updateView()
+            }
         }
-    }
     },
     //mouseUpgrade
     clickerUpgrade1: function() {
         if (this.price >= this.points) return; 
-        removePoints(this.price),
-        this.price = 50,
-        this.pointsUpgrade=2,
-        this.hideClickerUpgrade = "block",
-        this.whichClicking++
-        this.buttonText = 'Mousepower lvl ' + this.whichClicking
-        updatePoints()
-        console.log(this.price)
-    },
+            removePoints(this.price),
+            this.price = 50,
+            this.pointsUpgrade=2,
+            this.hideClickerUpgrade = "block",
+            this.whichClicking++
+            this.buttonText = 'Mousepower lvl ' + this.whichClicking
+            updatePoints()
+            console.log(this.price)
+        },
     
 
 
@@ -138,59 +138,59 @@ let model = {
     //extends/extenders/extenderinos
     clickerUpgrade2: function() {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade = 5
-        this.price = 150
-        console.log("upgrade2")
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade = 5
+            this.price = 150
+            console.log("upgrade2")
     },
     clickerUpgrade3: function() {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade= 12
-        this.price = 400
-        console.log("upgrade3")
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade= 12
+            this.price = 400
+            console.log("upgrade3")
     },
     clickerUpgrade4: function() {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade = 31
-        this.price = 800
-        console.log("upgrade4") 
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade = 31
+            this.price = 800
+            console.log("upgrade4") 
     },
     clickerUpgrade5: function () {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade = 82
-        this.price = 1400
-        console.log("upgrade5")
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade = 82
+            this.price = 1400
+            console.log("upgrade5")
     },
     clickerUpgrade6: function () {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade = 202
-        this.price = 2800
-        console.log("upgrade6")
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade = 202
+            this.price = 2800
+            console.log("upgrade6")
     },
     clickerUpgrade7: function () {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade = 391
-        this.price = 5600
-        console.log("upgrade7")
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade = 391
+            this.price = 5600
+            console.log("upgrade7")
     },
     clickerUpgrade8: function () {
         if (this.price >= this.points) return;
-        this.clickerUpgrade1.apply(this)
-        this.pointsUpgrade = 893
-        this.price = 11200
-        console.log("upgrade8")
+            this.clickerUpgrade1.apply(this)
+            this.pointsUpgrade = 893
+            this.price = 11200
+            console.log("upgrade8")
     },
     clickerUpgrade9: function () {
         if (this.price >= this.points) return;
-        this.clickerUpgrade4.apply(this)
-        this.pointsUpgrade = 1999
-        this.price = 19999
-        console.log("upgrade9")
+            this.clickerUpgrade4.apply(this)
+            this.pointsUpgrade = 1999
+            this.price = 19999
+            console.log("upgrade9")
     },
 }
 
